@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1052864050392",
+    "project_id": "accountbook-d92fb",
+    "storage_bucket": "accountbook-d92fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052864050392:android:cbc696b4770ad522da93ad",
+        "android_client_info": {
+          "package_name": "com.finance.test.app.finance_manager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZFPqkkSjrnIjCV5vktn85HqWvIPze1fw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
