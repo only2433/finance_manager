@@ -6,8 +6,8 @@
 
 ## Getting Started
 
-이 프로젝트는 자신의 가계부를 관리하는 프로그램으로, 저의 Flutter 첫번째 프로젝트 입니다.
-첫 프로젝트라 Design Pattern을 거의 응용하지 못했으며, 어떤식으로 동작원리를 파악하는데 
+이 프로젝트는 자신의 가계부를 관리하는 프로그램으로, 저의 Flutter 첫번째 프로젝트 입니다.<br>
+첫 프로젝트라 Design Pattern을 거의 응용하지 못했으며, 어떤식으로 동작원리를 파악하는데 <br>
 목표를 두고 개발 하였습니다.
 
 A few resources to get you started if this is your first Flutter project:
