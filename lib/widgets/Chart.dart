@@ -19,7 +19,6 @@ class Chart extends StatefulWidget
 
 class _ChartState extends State<Chart>
 {
-
   List<SalesData> showDataList = [];
   int totalAmount = 0;
   @override
@@ -64,7 +63,7 @@ class _ChartState extends State<Chart>
 
   void settingData()
   {
-    Logger.d('settingData', tag: Common.APP_NAME);
+    Logger.d('settingData listSize : ${widget.itemList.length}', tag: Common.APP_NAME);
     showDataList.clear();
     totalAmount = 0;
 

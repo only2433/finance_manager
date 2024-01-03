@@ -34,11 +34,9 @@ class _AddScreenState extends State<AddScreen> {
   final List<String> _feeItem = ['Income', 'Expand'];
 
   @override
-  void initState() {
+  void initState()
+  {
     super.initState();
-
-    print('initState');
-    inputDataController.initBalanceData();
   }
 
   @override

@@ -1,4 +1,5 @@
 
+import 'package:finance_manager/data/model/SignUpModel.dart';
 import 'package:get/get.dart';
 import 'dart:io';
 
@@ -6,38 +7,34 @@ import 'base/BaseController.dart';
 
 class SignUpController extends GetxController
 {
+  late SignUpModel mSignUpModel;
+  var isBirthdaySelected = false.obs;
   Rx<DateTime> birthdayDate = DateTime.now().obs;
-  var isSelected = false.obs;
-  Rx<File?> mUserPickerImage = Rx<File?>(null);
+  Rx<File?> userPickerImage = Rx<File?>(null);
 
 
   @override
   void onInit() {
     super.onInit();
-    init();
-  }
-
-  void init() {
-    birthdayDate.value = DateTime.now();
-    isSelected.value = false;
-    mUserPickerImage.value = null;
+    mSignUpModel = SignUpModel();
   }
 
   void setImageFile(String imagePath)
   {
-    mUserPickerImage.value = File(imagePath);
+    mSignUpModel.setUserPickerImage(imagePath);
+    userPickerImage(mSignUpModel.getUserPickerImage);
   }
 
-  void setUserDate(DateTime date)
+  void setBirthDay(DateTime date)
   {
-    birthdayDate.value = date;
-    isSelected.value = true;
+    mSignUpModel.setBirthday(date);
+    mSignUpModel.setBirthdaySelected(true);
+    birthdayDate(mSignUpModel.getBirthdayDate);
+    isBirthdaySelected(mSignUpModel.isBirthdaySelected);
   }
 
   DateTime getBirthDay()
   {
     return birthdayDate.value;
   }
-
-
 }

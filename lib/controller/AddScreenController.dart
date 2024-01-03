@@ -1,8 +1,13 @@
+import 'package:finance_manager/data/model/TransactionModel.dart';
 import 'package:get/get.dart';
+import 'package:flutter_easylogger/flutter_logger.dart';
+
+import '../common/Common.dart';
 
 class AddScreenController extends GetxController
 {
-  late Rx<DateTime> selectedDate;
+  late TransactionModel mTransactionModel;
+  Rx<DateTime> selectedDate = DateTime.now().obs;
   RxString selectedNameItem = "".obs;
   RxString selectedFeeItem = "".obs;
 
@@ -10,28 +15,26 @@ class AddScreenController extends GetxController
   void onInit()
   {
     super.onInit();
-    selectedDate = DateTime.now().obs;
+    Logger.d("onInit", tag: Common.APP_NAME);
+    mTransactionModel = TransactionModel();
   }
 
-  void initBalanceData()
-  {
-    selectedDate.value = DateTime.now();
-    selectedNameItem.value = "";
-    selectedFeeItem.value = "";
-  }
 
   void setSelectItemDate(DateTime date)
   {
-    selectedDate.value = date;
+    mTransactionModel.setTransactionDate(date);
+    selectedDate(mTransactionModel.transactionDate);
   }
 
   void setSelectItemName(String name)
   {
-    selectedNameItem.value = name;
+    mTransactionModel.setTransactionName(name);
+    selectedNameItem(mTransactionModel.transactionItemName);
   }
 
   void setSelectItemFee(String fee)
   {
-    selectedFeeItem.value = fee;
+    mTransactionModel.setTransactionFeeAmount(fee);
+    selectedFeeItem(mTransactionModel.transactionFeeAmount);
   }
 }

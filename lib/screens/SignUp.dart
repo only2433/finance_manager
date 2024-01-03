@@ -41,7 +41,7 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
-    signupController.init();
+
     loadingController.init();
     _scrollController = ScrollController();
     _focusNodeList =
@@ -115,10 +115,10 @@ class _SignUpState extends State<SignUp> {
                                       radius: 40,
                                       backgroundColor: Colors.grey[200],
                                       backgroundImage:
-                                          signupController.mUserPickerImage.value !=
+                                          signupController.userPickerImage.value !=
                                                   null
                                               ? FileImage(signupController
-                                                  .mUserPickerImage.value!)
+                                                  .userPickerImage.value!)
                                               : null);
                                 }),
                               ),
@@ -372,7 +372,7 @@ class _SignUpState extends State<SignUp> {
                     if (tempDate == null) {
                       return;
                     }
-                    signupController.setUserDate(tempDate);
+                    signupController.setBirthDay(tempDate);
                   },
                   icon: Icon(
                     Icons.date_range_sharp,
@@ -380,7 +380,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   label: Obx(() {
                     return Text(
-                        signupController.isSelected.value == false ? ' Birthday' : ' ${getDateText(signupController.birthdayDate.value)}',
+                        signupController.isBirthdaySelected.value == false ? ' Birthday' : ' ${getDateText(signupController.birthdayDate.value)}',
                       style: GoogleFonts.nunito(
                         color: Palette.textColor1,
                         fontWeight: FontWeight.normal,
@@ -410,10 +410,10 @@ class _SignUpState extends State<SignUp> {
     if (isSuccessValidateNickname == false) {
       return 'Nickname must be at least 4 characters long.';
     }
-    if (signupController.isSelected.value == false) {
+    if (signupController.isBirthdaySelected.value == false) {
       return 'Please select your birthday.';
     }
-    if (signupController.mUserPickerImage.value == null) {
+    if (signupController.userPickerImage.value == null) {
       return 'Please take your picture.';
     }
     return "";
@@ -450,7 +450,7 @@ class _SignUpState extends State<SignUp> {
             .child('picked_image')
             .child(userData.user!.uid + ".png");
 
-        await refImage.putFile(signupController.mUserPickerImage.value!);
+        await refImage.putFile(signupController.userPickerImage.value!);
         final userImageUrl = await refImage.getDownloadURL();
         await FirebaseFirestore.instance
             .collection('users')
